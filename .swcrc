@@ -1,11 +1,9 @@
 {
-  "compilerOptions": {
-    "target": "es2016",
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "skipLibCheck": true,
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "decorators": true
+    },
     "baseUrl": "./",
     "paths": {
       "@domain/*": ["src/domain/*"],
