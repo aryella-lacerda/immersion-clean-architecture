@@ -17,6 +17,8 @@
     "express": "node -r @swc-node/register src/infrastructure/http/express/index.ts"
   },
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "sqlite3": "^5.0.8",
+    "typeorm": "^0.3.6"
   }
 }

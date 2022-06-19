@@ -1,4 +1,4 @@
-import { Route } from "../../domain/route.entity";
+import { Route } from "../../../domain/route.entity";
 import { RouteInMemoryRepository } from "./route.in-memory.repository";
 
 describe("RouteInMemoryRepository tests", () => {
@@ -13,7 +13,7 @@ describe("RouteInMemoryRepository tests", () => {
   it("should insert a new route when `insert` method is called", async () => {
     // Arrange
     const repo = new RouteInMemoryRepository();
-    const route = new Route({
+    const route = Route.create({
       title: "Title",
       startPosition: { lat: 1, lng: 2 },
       endPosition: { lat: 3, lng: 4 },
@@ -36,8 +36,8 @@ describe("RouteInMemoryRepository tests", () => {
       points: [{ lat: 5, lng: 6 }],
     };
 
-    const route1 = new Route({ title: "Route 1", ...params });
-    const route2 = new Route({ title: "Route 2", ...params });
+    const route1 = Route.create({ title: "Route 1", ...params });
+    const route2 = Route.create({ title: "Route 2", ...params });
 
     // Act
     await repo.insert(route1);

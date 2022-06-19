@@ -13,7 +13,7 @@ describe("Route tests", () => {
       };
 
       // Act
-      const route = new Route(params);
+      const route = Route.create(params);
 
       // Assert
       expect(route.id).toBe(params.id);
@@ -25,7 +25,7 @@ describe("Route tests", () => {
 
     it("should accept a Route object without optional `points` parameter in constructor", () => {
       // Act
-      const route = new Route({
+      const route = Route.create({
         id: "testid",
         title: "Title",
         startPosition: { lat: 1, lng: 2 },
@@ -38,7 +38,7 @@ describe("Route tests", () => {
 
     it("should accept a Route object without optional `id` parameter in constructor", () => {
       // Act
-      const route = new Route({
+      const route = Route.create({
         title: "Title",
         startPosition: { lat: 1, lng: 2 },
         endPosition: { lat: 3, lng: 3 },
@@ -53,7 +53,7 @@ describe("Route tests", () => {
   describe("the toJSON method", () => {
     it("should return a complete JSON representation of the Route object", () => {
       // Arrange
-      const route = new Route({
+      const route = Route.create({
         title: "Title",
         startPosition: { lat: 1, lng: 2 },
         endPosition: { lat: 3, lng: 4 },
@@ -74,7 +74,7 @@ describe("Route tests", () => {
   describe("the updateTitle method", () => {
     it("should transform new title to uppercase before updating title", () => {
       // Arrange
-      const route = new Route({
+      const route = Route.create({
         title: "Old Title",
         startPosition: { lat: 1, lng: 2 },
         endPosition: { lat: 3, lng: 4 },

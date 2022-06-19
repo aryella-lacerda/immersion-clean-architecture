@@ -1,4 +1,4 @@
-import { RouteInMemoryRepository } from "../infrastructure/db/route.in-memory.repository";
+import { RouteInMemoryRepository } from "../infrastructure/db/in-memory";
 import { CreateRouteUseCase } from "./create-route.use-case";
 
 describe("CreateRouteUseCase tests", () => {

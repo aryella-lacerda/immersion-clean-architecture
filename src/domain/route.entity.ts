@@ -17,7 +17,21 @@ export class Route {
   endPosition: Coordinates;
   points: Coordinates[];
 
-  constructor(params: RouteProps) {
+  static create(params: RouteProps): Route {
+    return new Route(params);
+  }
+
+  private constructor(params?: RouteProps) {
+    if (!params) {
+      // Define defaults for use by ORM
+      this.title = "";
+      this.endPosition = { lat: 0, lng: 0 };
+      this.startPosition = { lat: 0, lng: 0 };
+      this.id = "";
+      this.points = [];
+      return;
+    }
+
     // Required
     this.title = params.title;
     this.endPosition = params.endPosition;
