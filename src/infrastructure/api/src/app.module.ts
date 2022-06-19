@@ -1,10 +1,22 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { RoutesModule } from './routes/routes.module';
+import { join } from 'path';
+import { RouteSchema } from '@infrastructure/db/typeorm';
 
 @Module({
-  imports: [RoutesModule],
+  imports: [
+    TypeOrmModule.forRoot({
+      type: 'sqlite',
+      database: join(__dirname, 'database.sqlite'),
+      synchronize: true,
+      logging: true,
+      entities: [RouteSchema],
+    }),
+    RoutesModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
